@@ -106,7 +106,7 @@ else :
       <td><?=$index + 1; ?></td>
       <td><?=$ribici['ime'] ?></td>
       <td><?=$ribici['priimek'] ?></td>
-      <td><a href="<?= getvar('APP_URL'); ?>/app/index.php?vec=<?=$ribici['id']; ?>">Preberi več</a></td>
+      <td><a href="<?php echogetvar('APP_URL'); ?>/app/index.php?vec=<?=$ribici['id']; ?>">Preberi več</a></td>
     </tr>
   <?php endforeach;?>
   </table>
@@ -127,50 +127,50 @@ else :
   <head>
     <meta charset="UTF-8"
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="ribici">
     <link rel="stylesheet" href="css/main.css">
     <title>Seznam Drustva ribicov</title>
   </head>
     <body>
-      <h1><a href="<?= getvar('APP_URL'); ?>/">Seznam</a></h1>
-      <h1><a href="<?= getvar('APP_URL'); ?>/index.php?task=add">Dodaj novega ribic/ribic</a></h1>
+      <h1><a href="<?php echo getvar('APP_URL'); ?>/">Seznam</a></h1>
+      <h1><a href="<?php echo getvar('APP_URL'); ?>/index.php?task=add">Dodaj novega ribic/ribic</a></h1>
       <?php if (isset($_GET['vec'] ) && $_GET['vec'] >= 0):?>
         <!-- Samo en ribic/ribici -->
         <?php $results = mysqli_query($conn, "SELECT * FROM ribici");?>
 
-        <h2>Ribič: <?= $array[$_GET['vec']]['1']; ?></h2>
+        <h2>Ribič: <?php echo$array[$_GET['vec']]['1']; ?></h2>
         <table>
           <tr>
             <td>Priimek:</td>
-            <td><?= $array[$_GET['vec']]['2']; ?></td>
+            <td><?php echo$array[$_GET['vec']]['2']; ?></td>
           </tr>
           <tr>
             <td>Kraj:</td>
-            <td><?= $array[$_GET['vec']]['3']; ?></td>
+            <td><?php echo$array[$_GET['vec']]['3']; ?></td>
           </tr>
           <tr>
             <td>Prisotnost:</td>
-            <td><?= $array[$_GET['vec']]['4']; ?></td>
+            <td><?php echo$array[$_GET['vec']]['4']; ?></td>
           </tr>
           <tr>
             <td>Nagrada:</td>
-            <td><?= $array[$_GET['vec']]['5']; ?></td>
+            <td><?php echo$array[$_GET['vec']]['5']; ?></td>
           </tr>
           <tr>
             <td>Status:</td>
-            <td><?= $array[$_GET['vec']]['6']; ?></td>
+            <td><?php echo$array[$_GET['vec']]['6']; ?></td>
           </tr>
           <tr>
             <td>created_at</td>
-            <td> <?= $array[$_GET['vec']]['7'];  ?></td>
+            <td> <?php echo$array[$_GET['vec']]['7'];  ?></td>
           </tr>
           <tr>
             <td>updated_at</td>
-            <td> <?= $array[$_GET['vec']]['8'];  ?></td>
+            <td> <?php echo$array[$_GET['vec']]['8'];  ?></td>
           </tr>
           <tr>
             <td>deleted_at</td>
-            <td> <?= $array[$_GET['vec']]['9'];  ?></td>
+            <td> <?php echo$array[$_GET['vec']]['9'];  ?></td>
           </tr>
         </table>
       </div>
@@ -182,6 +182,7 @@ else :
             <th>Številka</th>
             <th>Ime</th>
             <th>Priimek</th>
+            <th>Kraj</th>
             <th>Prisotnost</th>
             <th>Nagrada</th>
             <th>Več</th>
@@ -189,12 +190,12 @@ else :
           <?php foreach ($array as $index => $array):
             ?>
           <tr>
-            <th><?= $index + 1;?></th>
-            <th><?= $array['3']; ?></th>
-            <th><?= $array['1'];?></th>
-            <th><?= $array['4'];?></th>
-            <th><?= $array['5'];?></th>
-            <th><a class="" href="http://students.b2.eu/udelezenec63/app?vec=<?= $index; ?>"><i class="fa fa-edit">vec</a></th>
+            <th><?php echo$index + 1;?></th>
+            <th><?php echo$array['3']; ?></th>
+            <th><?php echo$array['1'];?></th>
+            <th><?php echo$array['4'];?></th>
+            <th><?php echo$array['5'];?></th>
+            <th><a class="" href="localhost/app?vec=<?php echo$index; ?>"><i class="fa fa-edit">vec</a></th>
           </tr>
           <?php endforeach;?>
         </table>

@@ -9,14 +9,16 @@
 
   include_once './shared.php';
 
-  $host     = getVar( 'HOST' );
+
+
+
   $db       = getVar( 'DB' );
   $username = getVar( 'USERNAME' );
   $password = getVar( 'PASSWORD' );
 
   try {
-    $conn = new PDO( "mysql:host=$host;dbname=$db", $username, $password, array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" ) );
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+
   } catch ( PDOException $e ) {
     $_SESSION['message'] = array(
       'text' => $e->getMessage(),

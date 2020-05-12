@@ -27,7 +27,7 @@
 
 ?>
 <!-- Več o posamezneme ribici/ribici -->
-Samo en igralec/igralka
+Samo en ribic/ribici
 |
 <a href="<?php echo  getvar( 'APP_URL' ); ?>/app/edit/<?php echo  $ribic['id']; ?>">&#9998;</a>
 |
@@ -65,5 +65,9 @@ Samo en igralec/igralka
   <tr>
     <td>Prisotnost:</td>
     <td><?php echo  $ribic['prisotnost']; ?></td>
+  </tr>
+  <tr>
+    <td>Nagrada:</td>
+    <td><?php echo  $ribic['kraj']; ?></td>
   </tr>
 </table>
